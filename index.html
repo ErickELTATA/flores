@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ramo romántico</title>
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #0f0f1a;
+        overflow: hidden;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      /* TEXTO */
+      .texto {
+        position: absolute;
+        top: 40px;
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+        opacity: 0;
+        animation: aparecerTexto 2s ease forwards;
+        animation-delay: 4.5s;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      }
+
+      @keyframes aparecerTexto {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* SVG */
+      svg {
+        width: 320px;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Dibujo */
+      .draw {
+        fill: none;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: draw 2s ease forwards;
+      }
+
+      @keyframes draw {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      /* Aparición */
+      .fade {
+        opacity: 0;
+        transform: scale(0.3);
+        animation: florecer 0.8s ease forwards;
+      }
+
+      @keyframes florecer {
+        0% {
+          opacity: 0;
+          transform: scale(0.2);
+        }
+        70% {
+          transform: scale(1.2);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      /* delays */
+      .d1 {
+        animation-delay: 0.5s;
+      }
+      .d2 {
+        animation-delay: 1s;
+      }
+      .d3 {
+        animation-delay: 1.5s;
+      }
+      .d4 {
+        animation-delay: 2s;
+      }
+      .d5 {
+        animation-delay: 2.5s;
+      }
+      .d6 {
+        animation-delay: 3s;
+      }
+      .d7 {
+        animation-delay: 3.5s;
+      }
+      .d8 {
+        animation-delay: 4s;
+      }
+
+      /* pétalos */
+      .petalo {
+        fill: #ffd54f;
+        filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.7));
+      }
+
+      /* centro */
+      .centro {
+        fill: #ffb300;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="texto">¿Quieres ser mi novia Lucy? 💛</div>
+
+    <svg viewBox="0 0 200 300">
+      <!-- PAPEL -->
+      <path
+        class="draw"
+        stroke="#d2a679"
+        stroke-width="3"
+        d="M50 200 L150 200 L130 260 L70 260 Z"
+      />
+
+      <!-- MOÑO -->
+      <path
+        class="draw"
+        stroke="#c89f94"
+        stroke-width="2"
+        d="M80 260 Q100 240 120 260"
+      />
+      <path
+        class="draw"
+        stroke="#c89f94"
+        stroke-width="2"
+        d="M80 260 Q100 280 120 260"
+      />
+
+      <!-- TALLOS -->
+      <line
+        class="draw d1"
+        x1="100"
+        y1="200"
+        x2="100"
+        y2="120"
+        stroke="green"
+        stroke-width="3"
+      />
+      <line
+        class="draw d2"
+        x1="100"
+        y1="200"
+        x2="70"
+        y2="130"
+        stroke="green"
+        stroke-width="3"
+      />
+      <line
+        class="draw d3"
+        x1="100"
+        y1="200"
+        x2="130"
+        y2="130"
+        stroke="green"
+        stroke-width="3"
+      />
+
+      <!-- HOJAS -->
+      <ellipse class="fade d3" cx="85" cy="160" rx="8" ry="15" fill="green" />
+      <ellipse class="fade d4" cx="115" cy="160" rx="8" ry="15" fill="green" />
+
+      <!-- FLORES CON PÉTALOS -->
+
+      <!-- Flor 1 -->
+      <g class="fade d5">
+        <circle class="centro" cx="100" cy="110" r="6" />
+        <ellipse class="petalo" cx="100" cy="95" rx="6" ry="12" />
+        <ellipse class="petalo" cx="100" cy="125" rx="6" ry="12" />
+        <ellipse class="petalo" cx="85" cy="110" rx="12" ry="6" />
+        <ellipse class="petalo" cx="115" cy="110" rx="12" ry="6" />
+      </g>
+
+      <!-- Flor 2 -->
+      <g class="fade d6">
+        <circle class="centro" cx="70" cy="120" r="6" />
+        <ellipse class="petalo" cx="70" cy="105" rx="6" ry="12" />
+        <ellipse class="petalo" cx="70" cy="135" rx="6" ry="12" />
+        <ellipse class="petalo" cx="55" cy="120" rx="12" ry="6" />
+        <ellipse class="petalo" cx="85" cy="120" rx="12" ry="6" />
+      </g>
+
+      <!-- Flor 3 -->
+      <g class="fade d7">
+        <circle class="centro" cx="130" cy="120" r="6" />
+        <ellipse class="petalo" cx="130" cy="105" rx="6" ry="12" />
+        <ellipse class="petalo" cx="130" cy="135" rx="6" ry="12" />
+        <ellipse class="petalo" cx="115" cy="120" rx="12" ry="6" />
+        <ellipse class="petalo" cx="145" cy="120" rx="12" ry="6" />
+      </g>
+
+      <!-- Flor 4 -->
+      <g class="fade d8">
+        <circle class="centro" cx="90" cy="90" r="6" />
+        <ellipse class="petalo" cx="90" cy="75" rx="6" ry="12" />
+        <ellipse class="petalo" cx="90" cy="105" rx="6" ry="12" />
+        <ellipse class="petalo" cx="75" cy="90" rx="12" ry="6" />
+        <ellipse class="petalo" cx="105" cy="90" rx="12" ry="6" />
+      </g>
+    </svg>
+  </body>
+</html>
